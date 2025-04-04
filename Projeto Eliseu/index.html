@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Estação do Luena - Portal oficial da rede ferroviária de Angola. Descubra rotas, horários e serviços disponíveis no Caminho de Ferro de Benguela.">
+    <meta name="keywords" content="Estação Luena, Angola, Ferrovias, Turismo, Moxico, Caminho de Ferro de Benguela, Bilhetes, Comboios">
+    <meta name="author" content="Estação do Luena">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Estação do Luena - Portal Ferroviário de Angola">
+    <meta property="og:description" content="Informações completas sobre o Caminho de Ferro de Benguela e conexões ferroviárias em Angola.">
+    <meta property="og:image" content="Imagens/estacaodebenguela.jpg">
+    <meta property="og:url" content="https://estacaoluena.co.ao">
+    <title>Estação do Luena - Portal Oficial Ferroviário de Angola</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="Imagens/BandeiraAngola.jpg" type="image/jpeg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- AOS - Animate On Scroll Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Swiper JS CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    
+    <style>
+        :root {
+            --primary-color: #0356a8;
+            --secondary-color: #0275d8;
+            --accent-color: #ffc107;
+            --dark-color: #1a1a2e;
+            --light-color: #f8f9fa;
+            --text-color: #343a40;
+            --light-text: #e9ecef;
+            --header-height: 80px;
+            --section-padding: 80px 0;
+            --transition-speed: 0.3s ease;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('Imagens/paisagem.jpg') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--light-color);
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            height: var(--header-height);
+            transition: all var(--transition-speed);
+        }
+
+        header.scrolled {
+            background: rgba(3, 86, 168, 0.95);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+            height: 70px;
+        }
+
+        .logo {
+            flex-shrink: 0;
+            margin-left: 20px;
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
+            transition: all var(--transition-speed);
+        }
+
+        header.scrolled .logo {
+            height: 50px;
+            width: 50px;
+        }
+
+        .logo img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.1);
+        }
+
+        header h1 {
+            font-size: clamp(1.5em, 4vw, 2em);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            flex-grow: 1;
+            margin: 0;
+            transition: all var(--transition-speed);
+        }
+
+        nav {
+            margin-right: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--light-color);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all var(--transition-speed);
+            position: relative;
+            padding: 10px 0;
+            opacity: 0.8;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width var(--transition-speed);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+            opacity: 1;
+        }
+
+        .container {
+            max-width: 1320px;
+            margin: calc(var(--header-height) + 20px) auto 20px auto;
+            padding: 0 15px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 15px;
+            background: rgba(0, 0, 0, 0.7) url('Imagens/estacaodebenguela.jpg') center/cover no-repeat;
+            background-blend-mode: darken;
+            border-radius: var(--border-radius);
+            margin-bottom: 50px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+            min-height: calc(100vh - var(--header-height));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h2 {
+            font-size: clamp(2.5em, 6vw, 4em);
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+        }
+
+        .hero p {
+            font-size: clamp(1.1em, 4vw, 1.3em);
+            margin: 0 auto 30px;
+            line-height: 1.7;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        .section {
+            background: rgba(0, 27, 60, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 60px 40px;
+            margin-bottom: 50px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            top: -100px;
+            left: -100px;
+            opacity: 0.3;
+        }
+
+        .section::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            bottom: -70px;
+            right: -70px;
+            opacity: 0.3;
+        }
+
+        .section h3 {
+            font-size: clamp(1.8em, 5vw, 2.5em);
+            color: var(--accent-color);
+            margin-bottom: 35px;
+            text-align: center;
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section h3::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 10px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            height: 300px;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease, filter 0.5s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            filter: brightness(0.7);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        .schedule {
+            position: relative;
+            z-index: 5;
+        }
+
+        .schedule table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 25px;
+            font-size: 16px;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            border-radius: var(--border-radius);
+        }
+
+        .schedule th, .schedule td {
+            padding: 18px 15px;
+            text-align: center;
+        }
+
+        .schedule th {
+            background: var(--primary-color);
+            color: var(--light-color);
+            font-size: 17px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .schedule tr:nth-child(odd) td {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .schedule tr:nth-child(even) td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .schedule td {
+            transition: background 0.3s ease;
+        }
+
+        .schedule tr:hover td {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 193, 7, 0.3);
+        }
+
+        .info-card h4 {
+            color: var(--accent-color);
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .info-card-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            transition: transform 0.5s ease;
+            display: inline-block;
+        }
+
+        .info-card:hover .info-card-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        footer {
+            background: var(--dark-color);
+            text-align: center;
+            padding: 50px 15px;
+            width: 100%;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('Imagens/BandeiraAngola.jpg') no-repeat center center/cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        footer .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: var(--light-text);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            font-size: 20px;
+            transition: transform 0.3s ease, background 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-8px) rotate(360deg);
+            background: var(--accent-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: var(--accent-color);
+            color: var(--dark-color);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            border: 2px solid transparent;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .btn.btn-outline {
+            background: transparent;
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .btn.btn-outline:hover {
+            background: var(--accent-color);
+            color: var(--dark-color);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: transform 0.4s ease;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 193, 7, 0.3);
+        }
+
+        .contact-icon {
+            font-size: 2.5em;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            transition: transform 0.5s ease;
+            display: inline-block;
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: scale(1.2);
+        }
+
+        .contact-card h4 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            color: var(--light-color);
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--accent-color);
+        }
+
+        /* Preço dos bilhetes animado */
+        .price-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+            margin-top: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 193, 7, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 160px;
+            height: 160px;
+            background: var(--accent-color);
+            opacity: 0.1;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .price-card .price-title {
+            font-size: 22px;
+            color: var(--light-color);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .price-card .price {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .price-card .price small {
+            font-size: 16px;
+            font-weight: normal;
+        }
+
+        .price-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .price-card ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .price-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        /* Rota animada do caminho de ferro */
+        .route-map {
+            position: relative;
+            height: 150px;
+            margin: 50px 0;
+            overflow: hidden;
+            z-index: 5;
+        }
+
+        .route-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--accent-color);
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .route-station {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            box-shadow: 0 0 0 6px rgba(255, 193, 7, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .route-station:hover {
+            background: var(--light-color);
+            box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .route-station-label {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--light-color);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .route-station:hover .route-station-label {
+            top: -35px;
+            color: var(--accent-color);
+        }
+
+        .train-icon {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            font-size: 30px;
+            color: var(--light-color);
+            z-index: 3;
+            animation: moveTrain 20s linear infinite;
+            text-shadow: 0 0 10px var(--accent-color);
+        }
+
+        @keyframes moveTrain {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        /* Contador animado */
+        .counter-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 40px 0;
+            position: relative;
+            z-index: 5;
+        }
+
+        .counter-item {
+            text-align: center;
+            margin: 20px;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .counter-value {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .counter-title {
+            font-size: 16px;
+            color: var(--light-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Swiper estilos */
+        .testimonials {
+            margin-top: 50px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 300px;
+            margin-top: 30px;
+        }
+
+        .testimonial-slide {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-quote {
+            flex: 1;
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 80px;
+            color: rgba(255, 193, 7, 0.2);
+            position: absolute;
+            top: -40px;
+            left: 0;
+            z-index: -1;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        /* Scroll para cima botão */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-color);
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .scroll-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background: var(--light-color);
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 992px) {
+            .section {
+                padding: 40px 30px;
+            }
+            
+            .gallery-item {
+                height: 250px;
+            }
+            
+            .counter-value {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --header-height: 70px;
+            }
+            
+            header {
+                padding: 0 15px;
+            }
+            
+            header h1 {
+                font-size: clamp(1.2em, 4vw, 1.8em);
+                margin-left: 15px;
+            }
+            
+            .logo {
+                height: 50px;
+                width: 50px;
+                margin-left: 10px;
+            }
+            
+            .menu-toggle {
+                display: flex;
+                margin-right: 15px;
+            }
+            
+            nav {
+                position: fixed;
+                top: var(--header-height);
+                left: -100%;
+                height: calc(100vh - var(--header-height));
+                width: 80%;
+                background: rgba(0, 27, 60, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 30px 0;
+                margin: 0;
+                transition: all 0.4s ease;
+                box-shadow: 5px 0 30px rgba(0, 0, 0, 0.3);
+                overflow-y: auto;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav a {
+                margin: 15px 0;
+                font-size: 18px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .hero {
+                padding: 60px 15px;
+                min-height: 500px;
+            }
+            
+            .section {
+                padding: 40px 20px;
+            }
+            
+            .gallery-item {
+                height: 220px;
+            }
+            
+            .route-map {
+                height: 120px;
+            }
+            
+            .counter-item {
+                min-width: 120px;
+            }
+            
+            .counter-value {
+                font-size: 32px;
+            }
+            
+            .counter-title {
+                font-size: 14px;
+            }
+            
+            .scroll-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h2 {
+                font-size: clamp(2em, 6vw, 3em);
+            }
+            
+            .section h3 {
+                font-size: clamp(1.5em, 5vw, 2em);
+            }
+            
+            .gallery-item {
+                height: 200px;
+            }
+            
+            .counter-container {
+                margin: 20px 0;
+            }
+            
+            .counter-item {
+                margin: 10px;
+                min-width: 40%;
+            }
+            
+            .route-station-label {
+                font-size: 10px;
+            }
+            
+            .price-card .price {
+                font-size: 32px;
+            }
+            
+            .swiper {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão para voltar ao topo -->
+    <div class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <header id="header">
+        <div class="logo">
+            <img src="Imagens/BandeiraAngola.jpg" alt="Bandeira de Angola">
+        </div>
+        <h1>Estação do Luena</h1>
+        <button class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+            <a href="#home" class="active">Início</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#horarios">Horários</a>
+            <a href="#rotas">Rotas</a>
+            <a href="#precos">Preços</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="home" class="hero">
+            <div class="hero-content" data-aos="fade-up" data-aos-delay="100">
+                <h2>Bem-vindo à Estação do Luena</h2>
+                <p>Descubra a beleza e a história desta estação ferroviária vibrante em Angola, um marco de conexão e modernidade. Explore rotas, horários e serviços em um dos corredores ferroviários mais importantes de África.</p>
+                <a href="#sobre" class="btn">Descubra Mais</a>
+                <a href="#precos" class="btn btn-outline">Ver Bilhetes</a>
+            </div>
+        </section>
+
+        <section id="sobre" class="section">
+            <h3 data-aos="fade-up">Sobre a Estação</h3>
+            <p data-aos="fade-up" data-aos-delay="100">A Estação do Luena é um ponto vital na rede ferroviária de Angola, conectando a província de Moxico ao resto do país. Com um design que combina elementos modernos e tradicionais angolanos, a estação serve como um importante hub de transporte e ponto de encontro cultural para a região.</p>
+            
+            <div class="counter-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="counter-item">
+                    <div class="counter-value" data-count="1956">0</div>
+                    <div class="counter-title">Ano de Fundação</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-value" data-count="568">0</div>
+                    <div class="counter-title">Km de Ferrovia</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-value" data-count="45000">0</div>
+                    <div class="counter-title">Passageiros Mensais</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-value" data-count="12">0</div>
+                    <div class="counter-title">Destinos</div>
+                </div>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="info-card-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h4>História</h4>
+                    <p>Parte do lendário Caminho de Ferro de Benguela, foi revitalizada como resultado dos esforços de reconstrução após décadas de conflito, simbolizando o renascimento e a resiliência de Angola e sua infraestrutura ferroviária.</p>
+                </div>
+                <div class="info-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="info-card-icon">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <h4>Serviços</h4>
+                    <p>Wi-Fi gratuito de alta velocidade, áreas de espera climatizadas, restaurantes com gastronomia local, lojas modernas, e acessibilidade total para todos os passageiros, incluindo instalações sanitárias e elevadores.</p>
+                </div>
+                <div class="info-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="info-card-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4>Localização</h4>
+                    <p>Situada no coração da cidade de Luena, capital da província de Moxico, a estação é um ponto estratégico para viajantes e comerciantes da região leste de Angola, facilitando transporte de pessoas e mercadorias.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px; text-align: center;" data-aos="fade-up" data-aos-delay="300">
+                <img src="Imagens/Moxicocidadedapaz.jpg" alt="Moxico - Cidade da Paz" style="max-width: 90%; border-radius: var(--border-radius); box-shadow: var(--box-shadow);">
+                <p style="margin-top: 15px; font-style: italic; color: var(--light-color);">Moxico - A Cidade da Paz, onde está localizada a Estação do Luena</p>
+            </div>
+        </section>
+
+        <section id="horarios" class="section schedule">
+            <h3 data-aos="fade-up">Horários dos Comboios</h3>
+            <p data-aos="fade-up" data-aos-delay="100">Confira abaixo os horários dos principais comboios que partem da Estação do Luena para outros destinos importantes de Angola. Os horários podem estar sujeitos a alterações, por isso recomendamos chegar com pelo menos 30 minutos de antecedência.</p>
+            
+            <div data-aos="fade-up" data-aos-delay="200">
+                <table>
+                    <tr>
+                        <th>Destino</th>
+                        <th>Partida</th>
+                        <th>Chegada</th>
+                        <th>Dias</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr>
+                        <td>Benguela</td>
+                        <td>08:00</td>
+                        <td>18:30</td>
+                        <td>Seg, Qua, Sex</td>
+                        <td><span class="badge" style="background-color: #28a745; padding: 5px 10px; border-radius: 15px; color: white; font-size: 12px;">Ativo</span></td>
+                    </tr>
+                    <tr>
+                        <td>Huambo</td>
+                        <td>10:15</td>
+                        <td>16:45</td>
+                        <td>Ter, Qui, Sáb</td>
+                        <td><span class="badge" style="background-color: #28a745; padding: 5px 10px; border-radius: 15px; color: white; font-size: 12px;">Ativo</span></td>
+                    </tr>
+                    <tr>
+                        <td>Kuito</td>
+                        <td>14:00</td>
+                        <td>19:20</td>
+                        <td>Seg, Qui, Dom</td>
+                        <td><span class="badge" style="background-color: #28a745; padding: 5px 10px; border-radius: 15px; color: white; font-size: 12px;">Ativo</span></td>
+                    </tr>
+                    <tr>
+                        <td>Lobito</td>
+                        <td>07:30</td>
+                        <td>19:00</td>
+                        <td>Ter, Sex, Dom</td>
+                        <td><span class="badge" style="background-color: #17a2b8; padding: 5px 10px; border-radius: 15px; color: white; font-size: 12px;">Em breve</span></td>
+                    </tr>
+                    <tr>
+                        <td>Namibe</td>
+                        <td>06:45</td>
+                        <td>22:15</td>
+                        <td>Qua, Sáb</td>
+                        <td><span class="badge" style="background-color: #dc3545; padding: 5px 10px; border-radius: 15px; color: white; font-size: 12px;">Suspenso</span></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div style="margin-top: 30px; text-align: center;">
+                <img src="Imagens/comboio.jpg" alt="Comboio de Angola" style="max-width: 90%; border-radius: var(--border-radius); box-shadow: var(--box-shadow);">
+                <p style="margin-top: 15px; font-style: italic; color: var(--light-text);">Comboio moderno que opera na linha ferroviária de Angola</p>
+            </div>
+            <div style="margin-top: 25px; text-align: center;">
+                <a href="#contato" class="btn">Informações de Bilhetes</a>
+            </div>
+        </section>
+
+        <section id="rotas" class="section">
+            <h3>Rotas do Caminho de Ferro</h3>
+            <p>O Caminho de Ferro de Benguela (CFB) é uma das mais importantes rotas ferroviárias de Angola e de África. Conectando o Porto do Lobito, no oceano Atlântico, até à fronteira com a República Democrática do Congo, o CFB é vital para o transporte de pessoas e mercadorias.</p>
+            
+            <div class="route-map">
+                <div class="route-line"></div>
+                <div class="train-icon"><i class="fas fa-train"></i></div>
+                
+                <div class="route-station" style="left: 5%;">
+                    <div class="route-station-label">Lobito</div>
+                </div>
+                <div class="route-station" style="left: 15%;">
+                    <div class="route-station-label">Benguela</div>
+                </div>
+                <div class="route-station" style="left: 30%;">
+                    <div class="route-station-label">Huambo</div>
+                </div>
+                <div class="route-station" style="left: 45%;">
+                    <div class="route-station-label">Kuito</div>
+                </div>
+                <div class="route-station" style="left: 65%;">
+                    <div class="route-station-label">Luena</div>
+                </div>
+                <div class="route-station" style="left: 80%;">
+                    <div class="route-station-label">Luau</div>
+                </div>
+                <div class="route-station" style="left: 95%;">
+                    <div class="route-station-label">Fronteira RDC</div>
+                </div>
+            </div>
+            
+            <div class="row" style="margin-top: 60px;">
+                <div class="col-md-6">
+                    <h4 style="color: var(--accent-color); margin-bottom: 20px;">História do CFB</h4>
+                    <p>Construído entre 1903 e 1929, o Caminho de Ferro de Benguela desempenhou um papel crucial no desenvolvimento de Angola e dos países vizinhos. Com 1.344 km de extensão, foi um feito notável de engenharia para sua época.</p>
+                    <p>Após décadas de conflito, a linha foi reabilitada e modernizada, simbolizando o renascimento e a reconstrução de Angola. Hoje, o CFB continua a ser uma rota vital para o comércio e transporte na região.</p>
+                </div>
+                <div class="col-md-6">
+                    <h4 style="color: var(--accent-color); margin-bottom: 20px;">Importância Econômica</h4>
+                    <p>O CFB facilita o transporte de produtos minerais das regiões interiores para o porto do Lobito, permitindo sua exportação para mercados internacionais. Além disso, é crucial para o fornecimento de bens essenciais às comunidades ao longo da rota.</p>
+                    <p>A ferrovia também impulsiona o turismo, permitindo aos viajantes explorar as paisagens diversificadas de Angola, desde as praias atlânticas até as terras altas do interior.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="precos" class="section">
+            <h3>Preços dos Bilhetes</h3>
+            <p>Oferecemos diferentes categorias de bilhetes para atender às necessidades de todos os nossos passageiros. Os preços variam de acordo com a distância e a classe escolhida. Abaixo estão os nossos preços padrão para as principais rotas.</p>
+            
+            <div class="row" style="margin-top: 40px;">
+                <div class="col-lg-4 col-md-6">
+                    <div class="price-card">
+                        <h4 class="price-title">Classe Econômica</h4>
+                        <div class="price" data-price="3500">0 <small>AKZ</small></div>
+                        <ul>
+                            <li>Assentos confortáveis</li>
+                            <li>Ar-condicionado</li>
+                            <li>Bagagem até 20kg</li>
+                            <li>Tomadas elétricas</li>
+                            <li>Café/chá gratuito</li>
+                        </ul>
+                        <a href="#contato" class="btn">Reservar Agora</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="price-card" style="transform: scale(1.05); z-index: 10; border-color: rgba(255, 193, 7, 0.3);">
+                        <div style="position: absolute; top: -15px; right: -15px; background: var(--accent-color); color: var(--dark-color); padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 12px;">MAIS POPULAR</div>
+                        <h4 class="price-title">Classe Executiva</h4>
+                        <div class="price" data-price="7500">0 <small>AKZ</small></div>
+                        <ul>
+                            <li>Assentos premium reclináveis</li>
+                            <li>Refeição completa incluída</li>
+                            <li>Bagagem até 30kg</li>
+                            <li>Wi-Fi dedicado</li>
+                            <li>Entretenimento a bordo</li>
+                        </ul>
+                        <a href="#contato" class="btn">Reservar Agora</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mx-auto">
+                    <div class="price-card">
+                        <h4 class="price-title">Classe Premium</h4>
+                        <div class="price" data-price="12000">0 <small>AKZ</small></div>
+                        <ul>
+                            <li>Cabine privativa</li>
+                            <li>Serviço de atendimento personalizado</li>
+                            <li>Refeições premium</li>
+                            <li>Bagagem até 40kg</li>
+                            <li>Embarque prioritário</li>
+                        </ul>
+                        <a href="#contato" class="btn">Reservar Agora</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 60px;">
+                <h4 style="color: var(--accent-color); margin-bottom: 20px; text-align: center;">Informações Adicionais</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul style="list-style-type: none; padding-left: 0;">
+                            <li><i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 10px;"></i> Crianças menores de 5 anos não pagam bilhete</li>
+                            <li><i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 10px;"></i> Crianças de 5 a 12 anos pagam 50% do valor</li>
+                            <li><i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 10px;"></i> Idosos acima de 65 anos têm 30% de desconto</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul style="list-style-type: none; padding-left: 0;">
+                            <li><i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 10px;"></i> Estudantes com carteira válida têm 20% de desconto</li>
+                            <li><i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 10px;"></i> Grupos acima de 10 pessoas ganham descontos especiais</li>
+                            <li><i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 10px;"></i> Militares e funcionários públicos têm 15% de desconto</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeria" class="section">
+            <h3>Galeria de Fotos</h3>
+            <p>Conheça os principais pontos turísticos ferroviários de Angola através da nossa galeria de imagens. Cada foto representa uma parte importante da história e do desenvolvimento ferroviário do país.</p>
+            
+            <!-- Swiper Gallery -->
+            <div class="swiper mySwiper" style="margin-top: 30px;">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="gallery-item">
+                            <img src="Imagens/estacaodebenguela.jpg" alt="Estação de Benguela">
+                            <div class="gallery-caption">Estação Ferroviária de Benguela - Arquitetura colonial renovada</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="gallery-item">
+                            <img src="Imagens/Benguela.jpg" alt="Cidade de Benguela">
+                            <div class="gallery-caption">Vista panorâmica da cidade de Benguela com suas construções históricas</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="gallery-item">
+                            <img src="Imagens/Huambocaminhodeferro.jpg" alt="Caminho de Ferro em Huambo">
+                            <div class="gallery-caption">Caminho de Ferro em Huambo - Conectando o interior de Angola</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="gallery-item">
+                            <img src="Imagens/paisagem.jpg" alt="Paisagem de Angola">
+                            <div class="gallery-caption">Paisagem típica avistada durante a viagem de comboio pelo interior angolano</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            
+            <div style="margin-top: 40px; text-align: center;">
+                <p>As ferrovias de Angola representam não apenas um meio de transporte, mas um símbolo da resiliência e reconstrução do país após anos de conflito. O Caminho de Ferro de Benguela é uma das rotas mais importantes, conectando o litoral ao interior e facilitando o comércio e o turismo.</p>
+                
+                <div class="testimonials">
+                    <h4 style="color: var(--accent-color); margin-bottom: 25px;">O Que Dizem Nossos Passageiros</h4>
+                    <div class="swiper testimonialsSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="testimonial-slide">
+                                    <div class="testimonial-quote">
+                                        "A viagem de Luena para Benguela foi incrível! Os vagões são confortáveis e a vista das paisagens angolanas é de tirar o fôlego. Recomendo a todos que queiram conhecer o país de uma forma única."
+                                    </div>
+                                    <div class="testimonial-author">João Paulo, Luanda</div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testimonial-slide">
+                                    <div class="testimonial-quote">
+                                        "Viajo frequentemente a trabalho e o comboio se tornou minha opção preferida. O serviço é excelente, as refeições são deliciosas e chego sempre descansado ao meu destino."
+                                    </div>
+                                    <div class="testimonial-author">Maria Fernanda, Huambo</div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testimonial-slide">
+                                    <div class="testimonial-quote">
+                                        "Como turista estrangeiro, fiquei impressionado com a qualidade do serviço ferroviário de Angola. A Estação do Luena é moderna e o pessoal é extremamente atencioso."
+                                    </div>
+                                    <div class="testimonial-author">Pierre Dubois, França</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="section">
+            <h3>Entre em Contato</h3>
+            <p>Temos uma equipe dedicada para ajudar com informações sobre horários, tarifas e serviços disponíveis na Estação do Luena. Entre em contato através dos canais abaixo ou preencha o formulário.</p>
+            
+            <div class="row" style="margin-top: 40px;">
+                <div class="col-lg-6">
+                    <div class="contact-grid">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <h4>Telefone</h4>
+                            <p>(+244) 923-456-789</p>
+                            <p>(+244) 222-333-444</p>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h4>Email</h4>
+                            <p>contato@estacaoluena.co.ao</p>
+                            <p>bilhetes@estacaoluena.co.ao</p>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h4>Endereço</h4>
+                            <p>Rua Principal, 123 - Luena</p>
+                            <p>Província de Moxico, Angola</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 40px; background: rgba(255, 255, 255, 0.05); padding: 25px; border-radius: var(--border-radius);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 20px; text-align: center;">Horário de Funcionamento</h4>
+                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px;">
+                            <div>
+                                <p><strong><i class="fas fa-clock" style="color: var(--accent-color); margin-right: 10px;"></i>Segunda a Sexta:</strong> 06:00 - 22:00</p>
+                                <p><strong><i class="fas fa-clock" style="color: var(--accent-color); margin-right: 10px;"></i>Sábados:</strong> 07:00 - 20:00</p>
+                                <p><strong><i class="fas fa-clock" style="color: var(--accent-color); margin-right: 10px;"></i>Domingos e Feriados:</strong> 08:00 - 18:00</p>
+                            </div>
+                            <div>
+                                <p><strong><i class="fas fa-ticket-alt" style="color: var(--accent-color); margin-right: 10px;"></i>Bilheteria:</strong> Abre 1h antes da primeira partida</p>
+                                <p><strong><i class="fas fa-utensils" style="color: var(--accent-color); margin-right: 10px;"></i>Restaurantes:</strong> 07:00 - 21:00</p>
+                                <p><strong><i class="fas fa-shopping-bag" style="color: var(--accent-color); margin-right: 10px;"></i>Lojas:</strong> 08:00 - 20:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" style="margin-top: 30px;">
+                    <div style="background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: var(--border-radius); box-shadow: var(--box-shadow);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 25px; text-align: center;">Formulário de Contato</h4>
+                        <form id="contactForm">
+                            <div class="mb-4">
+                                <label for="nome" class="form-label">Nome Completo</label>
+                                <input type="text" class="form-control" id="nome" placeholder="Seu nome" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: var(--light-color); padding: 12px; border-radius: 8px;">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="seu-email@exemplo.com" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: var(--light-color); padding: 12px; border-radius: 8px;">
+                            </div>
+                            <div class="mb-4">
+                                <label for="assunto" class="form-label">Assunto</label>
+                                <select class="form-select" id="assunto" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: var(--light-color); padding: 12px; border-radius: 8px;">
+                                    <option selected>Selecione um assunto</option>
+                                    <option value="bilhetes">Informações sobre Bilhetes</option>
+                                    <option value="horarios">Horários de Comboios</option>
+                                    <option value="servicos">Serviços na Estação</option>
+                                    <option value="reclamacao">Reclamação</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="mensagem" class="form-label">Mensagem</label>
+                                <textarea class="form-control" id="mensagem" rows="5" placeholder="Digite sua mensagem aqui..." style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: var(--light-color); padding: 12px; border-radius: 8px;"></textarea>
+                            </div>
+                            <button type="submit" class="btn w-100">Enviar Mensagem</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <h5 style="color: var(--accent-color); margin-bottom: 20px; font-size: 18px;">Estação do Luena</h5>
+                        <p>A principal estação ferroviária da província do Moxico, conectando Angola através do histórico Caminho de Ferro de Benguela.</p>
+                        <div class="social-links">
+                            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <h5 style="color: var(--accent-color); margin-bottom: 20px; font-size: 18px;">Links Rápidos</h5>
+                        <ul style="list-style-type: none; padding-left: 0;">
+                            <li style="margin-bottom: 10px;"><a href="#home" style="color: var(--light-text); text-decoration: none; transition: all 0.3s ease;"><i class="fas fa-chevron-right" style="color: var(--accent-color); margin-right: 10px; font-size: 12px;"></i>Início</a></li>
+                            <li style="margin-bottom: 10px;"><a href="#sobre" style="color: var(--light-text); text-decoration: none; transition: all 0.3s ease;"><i class="fas fa-chevron-right" style="color: var(--accent-color); margin-right: 10px; font-size: 12px;"></i>Sobre</a></li>
+                            <li style="margin-bottom: 10px;"><a href="#horarios" style="color: var(--light-text); text-decoration: none; transition: all 0.3s ease;"><i class="fas fa-chevron-right" style="color: var(--accent-color); margin-right: 10px; font-size: 12px;"></i>Horários</a></li>
+                            <li style="margin-bottom: 10px;"><a href="#rotas" style="color: var(--light-text); text-decoration: none; transition: all 0.3s ease;"><i class="fas fa-chevron-right" style="color: var(--accent-color); margin-right: 10px; font-size: 12px;"></i>Rotas</a></li>
+                            <li style="margin-bottom: 10px;"><a href="#precos" style="color: var(--light-text); text-decoration: none; transition: all 0.3s ease;"><i class="fas fa-chevron-right" style="color: var(--accent-color); margin-right: 10px; font-size: 12px;"></i>Preços</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <h5 style="color: var(--accent-color); margin-bottom: 20px; font-size: 18px;">Newsletter</h5>
+                        <p>Assine nossa newsletter para receber atualizações sobre horários, promoções e novidades.</p>
+                        <div class="d-flex" style="margin-top: 20px;">
+                            <input type="email" placeholder="Seu email" style="flex: 1; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: var(--light-color); padding: 12px; border-radius: 8px 0 0 8px;">
+                            <button class="btn" style="border-radius: 0 8px 8px 0;">Assinar</button>
+                        </div>
+                    </div>
+                </div>
+                <hr style="border-color: rgba(255, 255, 255, 0.1); margin: 30px 0;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>© 2025 Estação do Luena - Todos os direitos reservados</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <p>Um projeto do Ministério dos Transportes de Angola e Caminhos de Ferro de Angola (CFA)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    
+    <!-- AOS - Animate On Scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Scripts customizados -->
+    <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+        
+        // Inicializar Swiper para galeria
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+            autoplay: {
+                delay: 5000,
+            },
+        });
+        
+        // Inicializar Swiper para depoimentos
+        var testimonialsSwiper = new Swiper(".testimonialsSwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            autoplay: {
+                delay: 6000,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+        
+        // Controle do menu mobile
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+        
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+        
+        // Adicionar classe ativa ao item do menu quando scrollar para a seção
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Adicionar classe scrolled ao header quando scrollar
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Mostrar botão de voltar ao topo
+            const scrollToTopBtn = document.querySelector('.scroll-to-top');
+            if (window.scrollY > 500) {
+                scrollToTopBtn.classList.add('active');
+            } else {
+                scrollToTopBtn.classList.remove('active');
+            }
+        });
+        
+        // Scroll suave para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Fechar o menu móvel se estiver aberto
+                    if (window.innerWidth <= 768) {
+                        nav.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
+        // Voltar ao topo
+        document.querySelector('.scroll-to-top').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Contador animado para números
+        const counters = document.querySelectorAll('.counter-value');
+        const speed = 200;
+        
+        const startCounters = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-count');
+                    const count = +counter.innerText.replace(/,/g, '');
+                    const increment = target / speed;
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target.toLocaleString();
+                    }
+                };
+                updateCount();
+            });
+        };
+        
+        // Animação dos preços
+        const prices = document.querySelectorAll('.price');
+        
+        const animatePrices = () => {
+            prices.forEach(price => {
+                const target = +price.getAttribute('data-price');
+                const count = +price.innerText.replace(/[^0-9]/g, '');
+                const increment = target / 50;
+                
+                if (count < target) {
+                    price.innerText = Math.ceil(count + increment) + ' <small>AKZ</small>';
+                    setTimeout(() => animatePrices(), 40);
+                } else {
+                    price.innerHTML = target.toLocaleString() + ' <small>AKZ</small>';
+                }
+            });
+        };
+        
+        // Iniciar contadores e animações de preço quando a seção estiver visível
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.id === 'sobre') {
+                        startCounters();
+                    }
+                    if (entry.target.id === 'precos') {
+                        animatePrices();
+                    }
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        document.querySelector('#sobre') && observer.observe(document.querySelector('#sobre'));
+        document.querySelector('#precos') && observer.observe(document.querySelector('#precos'));
+        
+        // Formulário de contato
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Obrigado pelo contato! Retornaremos em breve.');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
